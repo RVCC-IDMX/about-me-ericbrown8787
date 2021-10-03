@@ -1,0 +1,50 @@
+body{
+    font-family:Montserrat;
+    background-color: #BBFAF1;
+    color: #AD57A7;
+    border: 8px solid #05AD94;
+    padding: 10px;
+    font-size: 1.2em;
+}
+
+#bio{
+    padding: 10px; 
+    text-align: left;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family:Iceland;
+    color: #FA00E6;
+    font-size: 5em;
+    text-align: center;
+} 
+
+header{
+    text-align:center;
+    background-color: #BBFAF1;
+}
+
+
+header img{
+    width: 180px;
+    padding: 10px;
+
+}
+
+#hero,footer{
+    margin: auto;
+    text-align: center;
+    background-color: #AD57A7;
+    color: #BBFAF1;
+    font-weight:bold;
+    padding:10px;
+    border: 8px solid #fa00e6;
+    width: 550px;
+}
+
+#hero img{
+    width:350px;
+    
+}
+
+
