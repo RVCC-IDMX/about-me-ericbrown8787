@@ -38,6 +38,8 @@ main{
     font-size: 1.2rem;
 }
 
+
+/*Hero*/
 #hero{
     border-radius: 60px;
 }
@@ -56,20 +58,23 @@ main{
     border: 8px solid #fa00e6;
     width: 550px;
     border-style:outset;
+    max-width: 100%;
 }
 
-
-#bio,#hobbies{
+/*All Sections*/
+section{
     border: 8px solid #fa00e6;
     background-color: #682d64;
     color: #BBFAF1;
     padding: 30px; 
     text-align: left;
-    margin: 10px;
+    margin: 100px;
     border-style: outset;
     border-radius: 30px;
 }
 
+
+/*Hobbies*/
 #hobbies ul{
     font-size:1.3rem;
     border:10px groove #9eb2f9;
@@ -95,6 +100,33 @@ li p{
     padding-left:1.7rem;
 }
 
+
+/*Gallery*/
+#gallery img{
+    max-width:100%;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    padding-top:20px;
+}
+
+#gallery figure{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+    padding:5px;
+    margin-top:20px;
+    border: 4px groove #9eb2f9;
+    border-radius: 7px;
+    box-shadow: 5px 5px 5px #fa00e6;
+}
+
+#gallery figure figcaption{
+    margin-top:20px;
+}
+
+/*Links*/
 a{
     color:#f580eb;
     text-shadow: 1px 1px black;
@@ -113,6 +145,7 @@ a{
     color: #9eb2f9;
 }
 
+/*Footer*/
 footer{
     border-radius: 0px 0px 30px 30px;
 }
