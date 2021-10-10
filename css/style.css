@@ -1,21 +1,13 @@
-body{
-    font-family:Montserrat;
-    background-color: #BBFAF1;
-    color: #AD57A7;
-    border: 8px solid #05AD94;
-    padding: 10px;
-    font-size: 1.2em;
-}
-
-#bio{
-    padding: 10px; 
-    text-align: left;
-}
-
-h1,h2,h3,h4,h5,h6{
+h1{
     font-family:Iceland;
     color: #FA00E6;
-    font-size: 5em;
+    text-align: center;
+    font-size: 6rem;
+}
+
+h2,h3,h4,h5,h6{
+    font-family:Iceland;
+    color: #BBFAF1;
     text-align: center;
 } 
 
@@ -24,27 +16,104 @@ header{
     background-color: #BBFAF1;
 }
 
-
 header img{
     width: 180px;
     padding: 10px;
 
 }
 
+body{
+    font-family:Montserrat;
+    background-color: #BBFAF1;
+    line-height: 1.5;
+}
+
+main{
+    border-style:outset;
+    color: #AD57A7;
+    border: 16px solid #05AD94;
+    border-style: inset;
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+#hero{
+    border-radius: 60px;
+}
+
+#hero img{
+    width:350px;
+}
+
 #hero,footer{
     margin: auto;
     text-align: center;
-    background-color: #AD57A7;
+    background-color: #682d64;
     color: #BBFAF1;
     font-weight:bold;
     padding:10px;
     border: 8px solid #fa00e6;
     width: 550px;
+    border-style:outset;
 }
 
-#hero img{
-    width:350px;
-    
+
+#bio,#hobbies{
+    border: 8px solid #fa00e6;
+    background-color: #682d64;
+    color: #BBFAF1;
+    padding: 30px; 
+    text-align: left;
+    margin: 10px;
+    border-style: outset;
+    border-radius: 30px;
 }
 
+#hobbies ul{
+    font-size:1.3rem;
+    border:10px groove #9eb2f9;
+    box-shadow:-15px -15px 15px inset #FA00E6;
+    padding: 30px;
+    border-radius: 30px;
+    margin: 30px;
+    background-color:#0b8371;
+    font-weight: bold;
+}
+
+#hobbies ul li:nth-child(odd){
+    list-style-type: square;
+    color:#BBFAF1;
+}
+
+#hobbies ul li:nth-child(even){
+    list-style-type:circle;
+    color:#fcbcf3;
+}
+
+li p{
+    padding-left:1.7rem;
+}
+
+a{
+    color:#f580eb;
+    text-shadow: 1px 1px black;
+}
+
+:link:hover{
+    border-style:dashed;
+    padding-left:5px;
+    padding-right:5px;
+    background-color: black;
+    border-radius:10px;
+    position:absolute;
+}
+
+:visited{
+    color: #9eb2f9;
+}
+
+footer{
+    border-radius: 0px 0px 30px 30px;
+}
 
