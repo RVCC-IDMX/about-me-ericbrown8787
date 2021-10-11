@@ -126,6 +126,53 @@ li p{
     margin-top:20px;
 }
 
+
+/*Literature*/
+#lit{
+    color:#046153;
+    border: 6px dashed #9eb2f9;
+    box-shadow:30px 30px #9eb2f9;
+    text-align: left;
+    margin: 100px;
+    border-radius: 3px;
+    background-color:#e4f8f5
+}
+#lit h2{
+    color:#fa00e6;
+}
+
+#lit div{
+    padding:0rem 2rem 2rem 2rem;
+    max-width:40rem;
+    margin:0 auto;
+}
+
+#lit div p{
+    padding:.3rem;
+    clear:both;
+    margin:1.5rem;
+}
+
+
+/*Dropcaps*/
+#lit div p:nth-child(3n+1):first-letter{
+    color:#FA00E6;
+    text-shadow:-7px 0px 2px #682d64;
+    font-family:Iceland;
+    background-image:repeating-radial-gradient(#9eb2f9,#BBFAF1 15%);
+    font-weight:bolder;
+    float:left;
+    font-size:5rem;
+    border:8px ridge #05AD94;
+    margin-right:.2rem;
+    margin-top:-1rem;
+    padding:.5rem;
+    line-height:.5;
+    border-radius:2rem 1.4rem 2rem 0rem;
+    font-style: oblique;
+
+}
+
 /*Links*/
 a{
     color:#f580eb;
