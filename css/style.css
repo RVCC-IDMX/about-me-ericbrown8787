@@ -12,7 +12,7 @@ h2,h3,h4,h5,h6{
     font-family:Iceland;
     color: #BBFAF1;
     text-align: center;
-    margin:.5em;
+    margin:.8em;
 }
 
 header{
@@ -31,6 +31,7 @@ body{
     background-color: #BBFAF1;
     line-height: 1.5;
 }
+
 main{
     border-style:outset;
     color: #AD57A7;
@@ -38,7 +39,7 @@ main{
     border-style: inset;
     border-radius: 30px;
     padding: 10px;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 
@@ -141,7 +142,9 @@ li p{
     border: 6px dashed #9eb2f9;
     box-shadow:30px 30px #9eb2f9;
     text-align: left;
-    margin: 100px;
+    margin: 15px 30px 30px 15px;
+    margin-right: 30px;
+    margin-bottom:30px;
     border-radius: 3px;
     background-color:#e4f8f5
 }
@@ -151,19 +154,16 @@ li p{
 
 #lit div{
     padding:0rem 2rem 2rem 2rem;
-    max-width:40rem;
-    margin:0 auto;
 }
 
 #lit div p{
     padding:.3rem;
     clear:both;
-    margin:1.5rem;
 }
 
 
 /*Dropcaps*/
-#lit div p:nth-child(3n+1):first-letter{
+#lit div p:first-child:first-letter{
     color:#FA00E6;
     text-shadow:-7px 0px 2px #682d64;
     font-family:Iceland;
@@ -204,7 +204,7 @@ a{
 footer{
     border-radius: 0px 0px 30px 30px;
 }
-
+/* Tablet Size */
 @media screen and (min-width: 60em){
     figure {
         display: grid;
@@ -215,8 +215,39 @@ footer{
         display:flex;
         justify-content:center;
         align-items:center;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         margin-left:1rem;
+    }
+    figure img{
+        width:100%;
+    }
+    #lit div{
+        max-width:100%;
+        columns:20rem;
+
+    }
+
+}
+
+/*  */
+@media screen and (min-width:100em){
+    #gallery{
+        display:grid;
+        grid-template-columns:1fr 1fr 1fr;
+    }
+
+    h2{
+        font-size: 4rem;
+    }
+
+    hr{
+        display:none;
+    }
+    #gallery h2 {
+        grid-column:1/-1;
+    }
+    figure{
+        display:block
     }
 
 }
