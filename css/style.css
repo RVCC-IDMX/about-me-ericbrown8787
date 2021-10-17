@@ -1,3 +1,6 @@
+/**{
+    outline:1px solid red;
+}*/
 h1{
     font-family:Iceland;
     color: #FA00E6;
@@ -9,7 +12,8 @@ h2,h3,h4,h5,h6{
     font-family:Iceland;
     color: #BBFAF1;
     text-align: center;
-} 
+    margin:.5em;
+}
 
 header{
     text-align:center;
@@ -27,7 +31,6 @@ body{
     background-color: #BBFAF1;
     line-height: 1.5;
 }
-
 main{
     border-style:outset;
     color: #AD57A7;
@@ -68,13 +71,19 @@ section{
     color: #BBFAF1;
     padding: 30px; 
     text-align: left;
-    margin: 100px;
     border-style: outset;
     border-radius: 30px;
+    min-width:200px;
 }
 
 
 /*Hobbies*/
+#hobbies{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
 #hobbies ul{
     font-size:1.3rem;
     border:10px groove #9eb2f9;
@@ -111,7 +120,6 @@ li p{
 }
 
 #gallery figure{
-    display:block;
     margin-left:auto;
     margin-right:auto;
     text-align:center;
@@ -197,3 +205,18 @@ footer{
     border-radius: 0px 0px 30px 30px;
 }
 
+@media screen and (min-width: 60em){
+    figure {
+        display: grid;
+        grid-template-columns:2fr 1fr;
+    }
+    
+    figcaption {
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        font-size: 1.2rem;
+        margin-left:1rem;
+    }
+
+}
