@@ -184,6 +184,7 @@ main{
     width:100%;
     color:#BBFAF1
 }
+
 #video figure{
     display:flex;
     flex-direction:column;
@@ -192,12 +193,12 @@ main{
     margin:0 auto 1rem auto;
     padding:20px 0px 20px 0px;
     font-weight:bold;
-    max-width:1200px;
+    max-width:1100px;
 
 }
 
 #video h2{
-    max-width:1200px;
+    max-width:1100px;
 
 }
 
@@ -224,6 +225,72 @@ main{
 /* Contact Form */
 #formelements{
     display:grid;
+    row-gap:.5em;
+}
+
+#contact{
+    padding:1rem;
+    max-width:600px;
+    margin: 2rem auto;
+}
+
+#contact h2{
+    color:#FA00E6;
+}
+
+label{
+    font-weight:bold;
+}
+
+fieldset{
+    border:4px dashed #9eb2f9;
+    background-color: #e4f8f5;
+    border-radius:4px;
+}
+
+.formfields{
+    box-shadow:10px 10px 0px #9eb2f9;
+    padding:1.2rem;
+}
+
+legend{
+    border-radius:1rem 0 1rem 0;
+    background-color: #046153;
+    color:#e4f8f5;
+    padding:.5em 1.2em .5em 1.2em;
+    border: 3px solid #05AD94;
+}
+
+#contact ul{
+    list-style:none;
+    padding:0px;
+}
+
+#contact li{
+    margin:1rem;
+}
+
+#contact button{
+    background-color:#046153;
+    color:#e4f8f5;
+    border: 6px outset #05AD94;
+    justify-self:center;
+    border-radius:5px;
+    max-width:400px;
+    width:50%;
+}
+
+#contact button:hover{
+    text-decoration:underline;
+}
+
+#contact button:active{
+    border-style:inset;
+}
+
+#contact input, #contact textarea, #contact select,#contact button{
+    padding:.6em;
+    font-size:1rem;
 }
 
 /*Links*/
@@ -245,8 +312,7 @@ a{
     color: #9eb2f9;
 }
 
-
-/* Large Tablet Size-1024x1366 */
+/* Large Tablet Size */
 @media screen and (min-width: 60em){
     #gallery figure {
         display: grid;
@@ -268,6 +334,10 @@ a{
     #video figure, #video h2{
         border-right:15px  solid #9eb2f9;
         border-left:15px  solid #9eb2f9;
+    }
+
+    #formelements input, #formelements select, #formelements textarea{
+        margin-bottom:1.4rem;;
     }
 }
 
