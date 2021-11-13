@@ -101,6 +101,26 @@ main{
     color:#fcbcf3;
 }
 
+    /*Links in Hobbies*/
+#hobbies a{
+    color:#f580eb;
+    text-shadow: 1px 1px black;
+}
+
+#hobbies :link:hover{
+    border-style:dashed;
+    padding-left:5px;
+    padding-right:5px;
+    background-color: black;
+    border-radius:10px;
+    position:absolute;
+}
+
+#hobbies :visited{
+    color: #9eb2f9;
+}
+
+
 
 /*Gallery*/
 #gallery img{
@@ -291,24 +311,6 @@ legend{
     font-size:1rem;
 }
 
-/*Links*/
-a{
-    color:#f580eb;
-    text-shadow: 1px 1px black;
-}
-
-:link:hover{
-    border-style:dashed;
-    padding-left:5px;
-    padding-right:5px;
-    background-color: black;
-    border-radius:10px;
-    position:absolute;
-}
-
-:visited{
-    color: #9eb2f9;
-}
 
 /* Large Tablet Size */
 @media screen and (min-width: 60em){
