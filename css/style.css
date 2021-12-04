@@ -1,8 +1,10 @@
-
-/*Global*/
+/* *{
+    outline:1px solid red;
+} */
+/*Global======================================*/
 h1{
     font-family:Iceland;
-    color: #FA00E6;
+    color: #8EF0BA;
     font-size: 6rem;
 }
 
@@ -12,9 +14,19 @@ h2{
 
 h2,h3,h4,h5,h6{
     font-family:Iceland;
-    color: #BBFAF1;
+    color: #8EF0BA;
     text-align: center;
     margin:auto;
+}
+
+#bio h2, #hobbies h2, #gallery h2, #contact h2{
+    border-radius:3rem 0 3rem 0;
+    background-color: #04805E;
+    padding:0 1rem 0 1rem;;
+    color:#F9F5FC;
+    border: 3px solid #8EF0BA;
+    width:fit-content;
+    height: fit-content;
 }
 
 header{
@@ -29,23 +41,22 @@ header img{
 
 body{
     font-family:Montserrat;
-    background-color: #BBFAF1;
+    background-color: #B82929;
     line-height: 1.5;
 }
 
 main{
-    color: #AD57A7;
+    color: #B82929;
     border-radius: 30px;
 }
 
 
 #hero,#bio,#hobbies,#gallery,footer{
-    border: 8px solid #fa00e6;
-    background-color: #682d64;
-    color: #BBFAF1;
+    border: 8px groove #B82929;
+    background-color: #F9F5FC;
+    color: #B82929;
     padding:15px; 
     text-align: left;
-    border-style: outset;
     border-radius: 30px;
     margin:20px 0px 20px 0px;
     margin-left:auto;
@@ -57,6 +68,7 @@ main{
 /*Hero*/
 #hero{
     border-radius: 60px;
+    font-size: 1.3rem;
 }
 
 #hero img{
@@ -66,42 +78,42 @@ main{
 #hero,footer{
     margin: auto;
     text-align: center;
-    color: #BBFAF1;
+    color: #B82929;
     font-weight:bold;
     padding:10px;
     max-width:1000px;
 }
 
-/*Hobbies*/
-#hobbies{
 
+/*Hobbies======================================*/
+/* #hobbies{
     display:flex;
     flex-direction:column;
     align-items:center;
-}
+} */
 
 #hobbies ul{
+    background-color:#8EF0BA;
     font-size:1rem;
-    border:10px groove #9eb2f9;
-    box-shadow:-15px -15px 15px inset #FA00E6;
     padding: 30px;
     border-radius: 30px;
-    background-color:#0b8371;
     font-weight: bold;
     max-width:100%
 }
 
 #hobbies ul li:nth-child(odd){
     list-style-type: square;
-    color:#BBFAF1;
+    color:#B82929;
 }
 
 #hobbies ul li:nth-child(even){
     list-style-type:circle;
-    color:#fcbcf3;
+    color:#F9F5FC;
+    background-color:#B82929;
 }
 
-    /*Links in Hobbies*/
+
+/*Links in Hobbies======================================*/
 #hobbies a{
     color:#f580eb;
     text-shadow: 1px 1px black;
@@ -117,12 +129,12 @@ main{
 }
 
 #hobbies :visited{
-    color: #9eb2f9;
+    color: #DB4001;
 }
 
 
 
-/*Gallery*/
+/*Gallery======================================*/
 #gallery img{
     max-width:90%;
     display:block;
@@ -137,9 +149,9 @@ main{
     text-align:center;
     padding:5px;
     margin-top:20px;
-    border: 4px groove #9eb2f9;
+    border: 4px ridge #B82929;
     border-radius: 7px;
-    box-shadow: 5px 5px 5px #fa00e6;
+    box-shadow: 5px 5px 5px gray;
 }
 
 #gallery figure figcaption{
@@ -147,20 +159,20 @@ main{
 }
 
 
-/*Literature*/
+/*Literature======================================*/
 #lit{
     max-width:1600px;
-    color:#046153;
-    border: 6px dashed #9eb2f9;
-    box-shadow:30px 30px #9eb2f9;
+    color:#04805E;
+    border: 6px dashed #04805E;
+    box-shadow:15px 15px 30px black;
     text-align: left;
     margin:10px auto 40px auto;
     border-radius: 3px;
-    background-color:#e4f8f5;
+    background-color:#F9F5FC;
 }
 
 #lit h2{
-    color:#fa00e6;
+    color:#04805E;
 }
 
 #lit div{
@@ -173,34 +185,34 @@ main{
 }
 
 
-/*Dropcaps*/
+/*Dropcaps======================================*/
 #lit div p:first-child:first-letter{
-    color:#FA00E6;
-    text-shadow:-7px 0px 2px #682d64;
+    color:#04805E;
+    text-shadow:-7px 0px 2px black;
     font-family:Iceland;
-    background-image:repeating-radial-gradient(#9eb2f9,#BBFAF1 15%);
+    background-image:repeating-radial-gradient(#F9F5FC,#8EF0BA 15%);
     font-weight:bolder;
     float:left;
     font-size:5rem;
-    border:8px ridge #05AD94;
+    border:8px ridge #04805E;
     margin-right:.2rem;
     margin-top:-1rem;
-    padding:.5rem;
+    padding:.5rem .6rem;
     line-height:.5;
-    border-radius:2rem 1.4rem 2rem 0rem;
-    font-style: oblique;
+    border-radius:2rem 0 2rem 0;
+    font-style:oblique;
 }
 
-/* My Video */
+/* My Video======================================*/
 #video{
     background:black;
     margin:80px 0px 50px 0px;
     border-radius:0 0 0 0;
-    border-top:30px  dashed #9eb2f9;
-    border-bottom:30px  dashed #9eb2f9;
+    border-top:30px  dashed #B82929;
+    border-bottom:30px  dashed #B82929;
     box-shadow: 0px 30px black, 0px -30px black;
     width:100%;
-    color:#BBFAF1
+    color:#F9F5FC;
 }
 
 #video figure{
@@ -240,20 +252,23 @@ main{
     height:100%;
 }
 
-/* Contact Form */
+/* Contact Form======================================*/
 #formelements{
     display:grid;
     row-gap:.5em;
 }
 
-#contact{
-    padding:1rem;
+#contact{ 
+    display:flex;
+    flex-direction: column;
+    align-items: center;
     max-width:600px;
     margin: 2rem auto;
 }
 
-#contact h2{
-    color:#FA00E6;
+#contact form{
+    min-width:100%;
+    margin-top:2rem;
 }
 
 label{
@@ -261,22 +276,28 @@ label{
 }
 
 fieldset{
-    border:4px dashed #9eb2f9;
+    /* border:4px dashed #9eb2f9;
     background-color: #e4f8f5;
-    border-radius:4px;
+    border-radius:4px; */
+    color:#04805E;
+    border: 6px dashed #04805E;
+    text-align: left;
+    margin:10px auto 40px auto;
+    border-radius: 3px;
+    background-color:#F9F5FC;
 }
 
 .formfields{
-    box-shadow:10px 10px 0px #9eb2f9;
+    box-shadow:10px 10px 10px black;
     padding:1.2rem;
 }
 
 legend{
     border-radius:1rem 0 1rem 0;
-    background-color: #046153;
-    color:#e4f8f5;
+    background-color: #04805E;
+    color:#F9F5FC;
     padding:.5em 1.2em .5em 1.2em;
-    border: 3px solid #05AD94;
+    border: 3px solid #8EF0BA;
 }
 
 #contact ul{
@@ -289,9 +310,9 @@ legend{
 }
 
 #contact button{
-    background-color:#046153;
-    color:#e4f8f5;
-    border: 6px outset #05AD94;
+    background-color:#04805E;
+    color:#F9F5FC;
+    border: 6px outset #8EF0BA;
     justify-self:center;
     border-radius:5px;
     max-width:400px;
@@ -312,7 +333,7 @@ legend{
 }
 
 
-/* Large Tablet Size */
+/* Large Tablet Size======================================*/
 @media screen and (min-width: 60em){
     #gallery figure {
         display: grid;
@@ -332,8 +353,8 @@ legend{
         grid-template-columns:2fr 1fr;
     }
     #video figure, #video h2{
-        border-right:15px  solid #9eb2f9;
-        border-left:15px  solid #9eb2f9;
+        border-right:15px  solid #B82929;
+        border-left:15px  solid #B82929;
     }
 
     #formelements input, #formelements select, #formelements textarea{
@@ -341,7 +362,7 @@ legend{
     }
 }
 
-/* Laptop Size */
+/* Laptop Size======================================*/
 @media screen and (min-width:100em){
     #gallery{
         display:grid;
@@ -365,3 +386,4 @@ legend{
     }
 
 }
+
