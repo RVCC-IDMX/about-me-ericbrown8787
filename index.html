@@ -5,22 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
+
+    <!-- Google Fonts Links -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Iceland&family=Montserrat&display=swap" rel="stylesheet">
+
+    <!-- Main Stylesheet Link /style.css -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Navbar Stylesheet Link /nav.css -->
     <link rel="stylesheet" href="css/nav.css">
+
+    <!-- Favicon Link -->
     <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
 </head>
+
+
 <body>
+<!-- Header -->
 <header>
-    <nav class="navbar">
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
         <div class="logo">
-            <img src="img/logo-96X96.svg"
+            <img src="img/rye-font-logo.svg"
             class="logo-img" 
-            alt="Blue Origami Logo">
+            alt="EB Monogram Logo">
             <h1 class="logo-title">Web Dev I</h1>
         </div>
+        
         <div class="navbar-links">
             <ul>
                 <li><a href="#bio">Bio</a></li>
@@ -31,92 +44,134 @@
         </div>
     </nav>
 </header>
+
+
+<!-- Main -->
 <main>
+    <!-- Hero -->
     <section id=hero>
-        <img src="img/avataaars.png" 
-        alt="Avatar picture of me">
+        <img src="img/picture-of-me-cornfield.png" 
+        alt="picture of me">
 
         <div>
-            <p>Eric Brown</p>
-            <p>Franklin, NJ</p>
+            <p class="my-name">Eric Brown</p>
+            <p class="my-location">Franklin, New Jersey</p>
         </div>
     </section>
+
+    <!-- Bio  -->
     <section id=bio>
         <h2>Biography</h2>
         <div>
-            <p><b>Hello!!!</b></p>
-                <p>My name is Eric Brown. I'm at RVCC to learn some new skills and 
-                earn the Computer Support and Computer Programming certificates,
-                and this is my website. </p>
-            </p>
-            <p> <b>I want to be...</b> somewhere in the woods, taking 
-                pictures of mushrooms, singing songs around a fire or following some old train tracks. 
-                <p><b>My passion is...</b>Building things. Fixing things. </p>
-                <p><b> My favorite way to work is...</b>At a desk or a bench, surrounded by monitors
-                and parts. Preferrably with noise-canceling headphones.</p>
-            </p>
+             <p><span>Hello!</span></p>
+             <p>My name is Eric Brown. I'm 29 years old, and I graduated from Rutgers University with an English degree in 2014. Right now, I work as a low-voltage technician maintaining fire alarm and communication systems, and I'm going back to school at Raritan Valley Community College to study web development and programming. I like doing work where I get to build things that people can use, and I hope to be able to use the skills that I learn at RVCC to find a job in web development.</p>
+
+             <p>I had originally gone back to school to learn networking and IT support, but I started studying web development on my own time using <a href="https://www.theodinproject.com">The Odin Project</a> and for this coming semester, I have decided to shift my focus to studying web development full time. Working on both The Odin Project and my classes at RVCC simultaneously has helped me learn to consider multiple approaches to solving problems, and I plan to continue with both going forward.</p> 
         </div>
     </section>
+
+    <!-- Hobbies -->
     <section id="hobbies">
         <h2>My Hobbies:</h2>
         <ul>
-            <li>Medieval Reenactment
-                <p>My friends and I get together on weekends to sew, sing songs and hit each other with
-                sticks(while wearing proper safety equipment, of course). You can check our parent 
-                organization out at <a href="https://www.markland.org">Markland.org</a></p>
-            </li>
 
-            <li>Building Computers
-                <p>I build and upgrade my daily driver desktop, and I like giving older computers that 
-                might otherwise end up as E-waste a second chance. </p>
-            </li>
-
-            <li>Reading
-                <p>Right now, I'm reading a lot of Jeff Vandermeer. Some of my 
-                other favorite authors are China Mieville and Tamsyn Muir.
+            <li>
+                <h3>Building Computers</h3>
+                <hr>
+                <p>
+                    I build and upgrade my daily driver desktop, and I like giving older computers that 
+                    might otherwise end up as E-waste a second chance. I just finished <a href="https://en.wikipedia.org/wiki/Ship_of_Theseus">Ship-Of-Theseus</a>-ing my old computer, and I think my next project is going to be building and configuring a home server for network storage out of all of the spare parts.
                 </p>
             </li>
 
-            <li>Camping
-                <p>My partner and I are slowly working my way through camping in every NJ state park that 
-                    allows camping. This year, we've been exploring the Pine Barrens.
+            <li>
+                <h3>Medieval Reenactment</h3>
+                <hr>
+                <p>
+                    When I'm not working on computers or other electronics for business or pleasure, I like learning about what people did before we had any of that. My friends and I get together on weekends to sew, sing songs and hit each other with
+                    sticks(while wearing proper safety equipment, of course). You can check our parent 
+                    organization out at <a href="https://www.markland.org">Markland.org</a>.
                 </p>
             </li>
 
-            <li>Tabletop RPGs
-                <p>I play Dungeons and Dragons, as well as some quick and 
-                easy indie games when my regular group isn't feeling 
-                up to continuing the main campaign. 
+            <li>
+                <h3>Reading</h3>
+                <hr>
+                <p>
+                    I love science fiction and fantasy. Some of my recent favorite authors are Jeff Vandermeer, China Mieville and Tamsyn Muir.
+                </p>
+            </li>
+
+            <li>
+                <h3>Camping</h3>
+                <hr>
+                <p>
+                    My partner and I are slowly working our way through camping in every New Jersey state park that allows camping. This year, we've been exploring the Pine Barrens.
+                </p>
+            </li>
+
+            <li>
+                <h3>Tabletop RPGs</h3>
+                <hr>
+                <p>
+                    I play Dungeons and Dragons, as well as some quick and 
+                    easy indie games when my regular group isn't feeling 
+                    up to continuing the main campaign. I'm trying to work up the courage to attempt to run a game of <a href="https://www.troikarpg.com/">Troika!</a> right now. </p>
                 </p>
             </li>
             
-            <li>PC Gaming
-                <p>...when I have the time, at least. You can see some of what I've been up to lately on my 
-                <a href="https://steamcommunity.com/profiles/76561197995348349">Steam profile</a></p> 
+            <li>
+                <h3>PC Gaming</h3>
+                <hr>
+                <p>
+                    ...when I have the time, at least. You can see some of what I've been up to lately on my 
+                <a href="https://steamcommunity.com/profiles/76561197995348349">Steam profile</a>.</p> 
             </li>
         </ul>
     </section>
+
+    <!-- Photo Gallery -->
     <section id="gallery">
         <h2>Photo Gallery</h2>
         <hr>
+        <!-- Penannular Brooch Photo -->
         <figure>
-            <img src="img/penannular-brooch-640w.jpg" alt="A Celtic penannular brooch">
-            <figcaption>A Celtic penannular brooch I forged out of copper wire.</figcaption>
+            <img src="img/penannular-brooch-640w-cropped.jpg" alt="A Celtic penannular brooch">
+            <figcaption>
+                <!-- Text in Photo Gallery figure captions is wrapped in a div in order to allow me to add padding to the text without affecting how the boxes are sized and aligned for the image hover text effect-->
+                <div class="caption-text"> 
+                    A Celtic penannular brooch I forged out of copper wire.
+                </div> 
+            </figcaption>
         </figure>
         <hr>
+
+        <!-- Round Shield Photo -->
         <figure>
             <img src="img/round-shield-640w.jpg" alt="A Viking round shield">
-            <figcaption>A Viking-style round shield I built and painted. 
+            <figcaption>
+                <div class="caption-text">
+                A Viking-style round shield I built and painted. 
                 The rabbit design is inspired by a motif that appears in art and architecture from all over 
-                Europe and Asia.</figcaption>
+                Europe and Asia.
+                </div>
+            </figcaption>
         </figure>
         <hr>
+
+        <!-- Plague Doctor Mask Photo -->
         <figure>
             <img src="img/plague-doctor-640w.jpg" alt="A plague doctor mask">
-            <figcaption>A plague doctor mask I made for Halloween of 2014. It's as hard to breathe in and 
-                see out of as it looks.</figcaption>
+            <figcaption>
+                <div class="caption-text">
+                    A plague doctor mask I made for Halloween of 2014. It's as hard to breathe in and 
+                see out of as it looks.
+                </div>
+            </figcaption>
         </figure>
     </section>
+
+    <!-- Blog/Lit section -->
     <article id="lit">
         <h2>An Excerpt From Dracula, by Bram Stoker</h2>
         <div>
@@ -139,24 +194,29 @@
                 God have not take away my reason, for I saw it through my eyes--there were before me in actual flesh the same three women that Jonathan saw in the room, when they would have kissed his throat. I knew the swaying 
                 round forms, the bright hard eyes, the white teeth, the ruddy colour, the voluptuous lips. They smiled ever at poor dear Madam Mina; and as their laugh came through the silence of the night, they twined their arms 
                 and pointed to her, and said in those so sweet tingling tones that Jonathan said were of the intolerable sweetness of the water-glasses:--</p>
-
-        
         </div>
     </article>
 
-    
+    <!-- Embedded Video -->
     <section id="video">
         <h2>A Short Video</h2>
+       
         <figure>
+            <!-- Embedded Video: Contained in wrapper div to allow resizing of video while preserving aspect ratio-->
             <div class="videowrap">
             <iframe id="myVideo" width="560" height="315" src="https://www.youtube.com/embed/A7L8orn88cU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
+
+            <!-- Video Caption -->
             <figcaption>
                 Here's a quick video of my 3D printer in action. I'm printing a towel rack, as well as a few parts for upgrading the printer itself.
             </figcaption>
+
         </figure>
+
     </section>
 
+    <!-- Contact Form -->
     <section id="contact">
         <h2>Contact Us</h2>
         <form id="contactform" name="contactform" data-netlify="true" method="post">
@@ -204,7 +264,8 @@
                         </li>
                     </ul>
                 </fieldset>
-                <!--Submit-->
+
+                <!--Submit Button-->
                 <button type="submit">Send</button>
                 </div>
                 
@@ -215,7 +276,31 @@
     
 </main>
 <footer>
-    &copy;2021 Eric Brown
+    <div>
+        <div class="footer-text">
+            <!-- Copyright -->
+            <div>
+                Copyright &copy;2021 Eric Brown
+            </div> 
+            <!--Pipe dividers added as separate elements so they can be aligned using Flexbox-->
+            <div class="pipe-divider">|</div>
+
+            <!-- License Information: Link to Creative Commons Site -->
+            <div>
+                <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+            </div>
+            <div class="pipe-divider">|</div>
+
+            <!-- Github Repository Link -->
+            <div><a href="https://github.com/RVCC-IDMX/about-me-ericbrown8787.git"> <img src="img/Github-Mark-64px.png" alt="Github Repository"></a></div>
+            <div class="pipe-divider">|</div>
+
+            <!-- Return to top link -->
+            <div><a href="#top">Return to Top of Page</a>
+            </div>
+        </div>
+    </div> 
+
 </footer>
 </body>
 </html>
