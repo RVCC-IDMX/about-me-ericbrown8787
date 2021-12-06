@@ -1,6 +1,6 @@
 # Eric Brown's Web Dev I: About Me Project
 
-![My monogram logo](img\rye-font-logo.svg)
+![My monogram logo](./img/rye-font-logo.svg)
 <br>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/69891be6-237d-4012-864a-c37d5df56ac0/deploy-status)](https://app.netlify.com/sites/about-me-ericbrown8787/deploys)
