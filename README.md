@@ -87,7 +87,7 @@ I made a lot of changes to the color scheme as I worked on the project. My initi
 - RGB: `rgb(142, 240, 186)`
 - Hex: `#8EF0BA`
 
-![My color palette](img\hemocyanin-palette.jpeg)
+![My color palette](./img/hemocyanin-palette.jpeg)
 
 ---
 
