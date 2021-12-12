@@ -17,6 +17,9 @@
     <!-- Navbar Stylesheet Link /nav.css -->
     <link rel="stylesheet" href="css/nav.css">
 
+    <!-- SVG Animation Stylesheet Link svg-animations.css -->
+    <link rel="stylesheet" href="css/svg-animations.css">
+
     <!-- Favicon Link -->
     <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
 </head>
@@ -64,7 +67,7 @@
         <h2>Biography</h2>
         <div>
              <p><span>Hello!</span></p>
-             <p>My name is Eric Brown. I'm 29 years old, and I graduated from Rutgers University with an English degree in 2014. Right now, I work as a low-voltage technician maintaining fire alarm and communication systems, and I'm going back to school at Raritan Valley Community College to study web development and programming. I like doing work where I get to build things that people can use, and I hope to be able to use the skills that I learn at RVCC to find a job in web development.</p>
+             <p>My name is Eric Brown. I'm 29 years old, and I graduated from Rutgers University with an English degree in 2014. Right now, I work as a low-voltage technician maintaining fire alarm and telecommunication systems, and I'm going back to school at Raritan Valley Community College to study web development and programming. I like doing work where I get to build things that people can use, and I hope to be able to use the skills that I learn at RVCC to find a job in web development.</p>
 
              <p>I had originally gone back to school to learn networking and IT support, but I started studying web development on my own time using <a href="https://www.theodinproject.com">The Odin Project</a> and for this coming semester, I have decided to shift my focus to studying web development full time. Working on both The Odin Project and my classes at RVCC simultaneously has helped me learn to consider multiple approaches to solving problems, and I plan to continue with both going forward.</p> 
         </div>
@@ -173,27 +176,486 @@
 
     <!-- Blog/Lit section -->
     <article id="lit">
-        <h2>An Excerpt From Dracula, by Bram Stoker</h2>
-        <div>
-            <p>Presently the horses began to scream, and tore at their tethers till I came to them and quieted them. When they did feel my hands on them, they whinnied low as in joy, and licked at my hands 
-                and were quiet for a time. Many times through the night did I come to them, till it arrive to the cold hour when all nature is at lowest; and every time my coming was with quiet of them. In the 
-                cold hour the fire began to die, and I was about stepping forth to replenish it, for now the snow came in flying sweeps and with it a chill mist. Even in the dark there was a light of some kind, 
-                as there ever is over snow; and it seemed as though the snow-flurries and the wreaths of mist took shape as of women with trailing garments. All was in dead, grim silence only that the horses whinnied 
-                and cowered, as if in terror of the worst. I began to fear--horrible fears; but then came to me the sense of safety in that ring wherein I stood. I began, too, to think that my imaginings were of the night, 
-                and the gloom, and the unrest that I have gone through, and all the terrible anxiety. It was as though my memories of all Jonathan's horrid experience were befooling me; for the snow flakes and the mist began 
-                to wheel and circle round, till I could get as though a shadowy glimpse of those women that would have kissed him. And then the horses cowered lower and lower, and moaned in terror as men do in pain. 
-                Even the madness of fright was not to them, so that they could break away. I feared for my dear Madam Mina when these weird figures drew near and circled round. I looked at her, but she sat calm, and smiled at 
-                me; when I would have stepped to the fire to replenish it, she caught me and held me back, and whispered, like a voice that one hears in a dream, so low it was:--</p>
+        <h2>Blog</h2>
+        <h2>Animated SVG Images Using CSS</h2>
+        <div class="article-text-container">
+            <!-- Article Introduction -->
+            <h3>Introduction</h3>
+            <p>When building a website or any other piece of software that has a graphical user interface, animation can be used to make UI elements behave in ways that resemble the ways in which objects move in nature, which makes it easier for humans to process the information being presented by the interface. However, including animations in a website can present developers with several challenges. Image formats such as PNG, GIF and JPEG a are <span class="keyword">raster</span> formats, meaning the information that they store is a map of individual pixels. Because of this, raster images tend to distort or lose quality when they are rendered at any size other than native. Because each pixel in the image must be defined in the file itself, high quality raster image files tend to be very large even with compression, which is compounded by the fact that animating raster images requires many individual frames.</p>
+
+            <p>On the other hand, <span class="keyword">vector</span> graphics are images that are rendered using mathematical formulae to represent a series of layered shapes usually referred to as <span class="keyword">paths</span>. Because of this, vector images usually can be resized with no loss of quality, because resizing them is a simple matter of your browser plugging different values into the formulae. Additionally, vector image files are typically much smaller than raster images because they only need to map the relationships between a small number of points, rather than the colors and positions of thousands or millions of pixels.</p>
+
+            <p><span class="keyword">SVG</span> is a type of XML-based markup used for creating vector images. All of an SVG image's markup is contained within &lt;svg> tags. The elements that comprise an SVG image, referred to as vectors, can be simple shapes, such as a rectangle(&lt;rect>) or a more irregular shape rendered based on instructions contained within a &lt;path> tag. These elements can be assigned additional properties like any HTML tag, and can be selected and styled using CSS. </p>
+
+            <!-- How Can You Animate an SVG Image -->
+            <h3>How can you animate an SVG image?</h3>
+            <p>There are several ways to animate an SVG, but here I am going to discuss how to animate SVG using standard CSS animation. CSS is near-universally known by web developers, and modern CSS animation is quite powerful.</p>
             
-            <p>No! No! Do not go without. Here you are safe!" I turned to her, and looking in her eyes, said:--</p>
+            <p>In order to create an animated SVG image, you need a properly-formatted SVG image to use. For our purposes here, I am going to use this a free SVG image of Ferris the crab: the unofficial mascot of <a href="https://www.rust-lang.org/">Rust</a>, which I got from <a href="https://commons.wikimedia.org/wiki/File:Rustacean-orig-noshadow.svg">Wikimedia Commons</a>. I've never programmed anything in Rust, but I find the crab charming, and he has lots of limbs to animate.</p>
+
+            <img id="ferris-unmodified" src="img/blog-images/ferris-unmodified.svg" alt="Ferris the Crab">
+
+            <p>As with standard html tags, you can add an ID to an SVG path's tag by using the id="Your ID Here" syntax inside of the opening tag. This makes it possible to easily select individual shapes in the SVG image using CSS with a high degree of specificity. By default, many SVG files may not have IDs already set unless they were created specifically to be manipulated with CSS or Javascript, and elements will not be grouped intuitively. However, it is easy to edit these using a design tool like <span class="keyword">Figma.</span></p>
             
-            <p>But you? It is for you that I fear!" whereat she laughed--a laugh, low and unreal, and said:--</p>
+            <h3>Preparing the SVG markup for animation</h3>
+            <p>In order to prepare Ferris for animation with CSS, I imported my SVG file into Figma and opened the list of elements that make up his first layer.</p>
+
+            <img class="screenshot" src="img/blog-images/ferris-imported.png" alt="Ferris in Figma">
+            <p>Once I resized the image to my desired size, I used the ungroup function to dissolve all existing groups, as the original SVG code had each vector contained in its own group. With all of the vectors ungrouped, I selected each vector in the list so Figma would outline the corresponding element of the rendered image in blue, then I renamed them using human-readable IDs. </p>
+            <img class="screenshot" src="img/blog-images/vectors-names.png" alt="List of vectors with names">
+
+            <p>After I had assigned a descriptive ID to each vector, I created new groups with their own IDs, so vectors that form parts of the same shape(such as a claw, or an eye) are grouped in a way which allows me to select the entire body part simultaneously with CSS.</p>
             
-            <p>Fear for me! Why fear for me? None safer in all the world from them than I am," and as I wondered at the meaning of her words, a puff of wind made the flame leap up, and I see the red scar on 
-                her forehead. Then, alas! I knew. Did I not, I would soon have learned, for the wheeling figures of mist and snow came closer, but keeping ever without the Holy circle. Then they began to materialise till--if 
-                God have not take away my reason, for I saw it through my eyes--there were before me in actual flesh the same three women that Jonathan saw in the room, when they would have kissed his throat. I knew the swaying 
-                round forms, the bright hard eyes, the white teeth, the ruddy colour, the voluptuous lips. They smiled ever at poor dear Madam Mina; and as their laugh came through the silence of the night, they twined their arms 
-                and pointed to her, and said in those so sweet tingling tones that Jonathan said were of the intolerable sweetness of the water-glasses:--</p>
+            <img class="screenshot" src="img/blog-images/vectors-grouped.png" alt="List of vectors with names">
+
+            <p>In order to make sizing and positioning the image easier, I centered Ferris inside of a transparent square and created one more group containing Ferris and the square.</p>
+            <p>Finally, I exported Ferris as an SVG. It is important to make sure to export the SVG with the 'Include "id" attribute' option checked, so the IDs you just assigned are included in the exported code.</p>
+
+            <p> In order to select vectors in an SVG using CSS, the SVG markup must be pasted into your HTML file directly, not referenced externally. Because this can add a lot of code to your markup, it is important to use indentation and comments to make the code easier to read. Because sizing in inline SVG image is tricky, I altered the width and height properties defined in the &lt;svg> tag in order to set the image's height and width to match its container, and then wrapped the SVG in a container div, whose dimensions determine the dimensions of the animated SVG inside.</p>
+            <figure>
+            <div class="code-container">
+                <h4>HTML</h4>
+                <code>
+                    &lt;svg width="100%" height="100%" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg"  id="ferris">
+                </code>
+            </div>
+
+            <div class="code-container">
+                <h4>CSS</h4>
+                <code>
+                .svg-animation-container {
+                    <br>
+                margin: 0 auto;
+                    <br>
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+                    <br>
+                background-color: whitesmoke;
+                    <br>
+                width: 100%; /*Sets width of contained inline SVG*/
+                    <br>
+                max-width: 300px;
+                }
+                </code>
+            </div>
+            </figure>
+
+            <p>I started with Ferris's body, using a translateY transform effect to make him bounce up and down. To make the animation appear more lifelike, I used the "ease" timing property and set the front section of ferris's body(containing his face and front legs) and the back(containing his back legs and underside) to move different distances, creating the impression that he is pushing off with one set of legs and jumping. </p>
+
+            <figure>
+            <div class="code-container">
+                <h4>CSS</h4>
+                <code>
+                .svg-animation-container {
+                    <br>
+                margin: 0 auto;
+                    <br>
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+                    <br>
+                background-color: whitesmoke;
+                    <br>
+                width: 100%; /*Sets width of contained inline SVG*/
+                    <br>
+                max-width: 300px;
+                }
+                </code>
+            </div>
+            <!-- Ferris with Animated Body -->
+            <div class="svg-animation-container">
+                <!-- Main SVG Code -->
+                <svg width="100%" height="100%" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg"  id="ferris">
+                    <g>
+                        <g id="crab">
+                            <!-- Body and All Legs -->
+                            <g id="body-and-legs">
+                                <!-- Right Back Foot -->
+                                <path id="right-back-foot" d="M362.878 257.049L358.878 246.049C358.903 245.667 358.878 245.432 358.878 245.049C358.878 233.649 346.899 223.46 326.878 215.049V276.049C336.219 272.124 343.457 267.765 348.878 263.049C347.283 269.438 342.227 281.958 337.878 291.049C330.729 304.05 328.546 315.488 328.878 316.049C329.089 316.401 331.281 313.122 334.878 307.049C343.247 295.169 358.708 271.826 361.878 266.049C365.468 259.5 362.878 257.049 362.878 257.049Z" fill="#A52B00"/>
+                                
+                                <!-- Left Back Foot -->
+                                <path id="left-back-foot" d="M49.8777 246.049C49.8777 248.243 51.0396 249.929 51.8777 252.049L48.8777 257.049C48.8777 257.049 45.8447 260.679 49.8777 267.049C53.435 272.665 71.4732 294.536 80.8777 306.049C84.9173 311.951 87.6378 315.4 87.8777 315.049C88.2552 314.491 85.9002 303.691 77.8777 291.049C74.1343 284.258 69.5609 274.694 66.8777 268.049C74.3695 272.867 84.232 277.287 95.8777 281.049V210.049C67.8143 219.11 49.8777 232.129 49.8777 246.049Z" fill="#A52B00"/>
+                                
+                                <!-- Body Underside -->
+                                <path id="body-underside" d="M202.878 200.049C161.507 200.049 123.705 204.977 95.8777 213.049V282.049C123.705 290.121 161.507 295.049 202.878 295.049C250.227 295.049 292.404 288.275 320.878 278.049V217.049C292.404 206.822 250.227 200.049 202.878 200.049Z" fill="#A52B00"/>
+                                
+                                <!-- Main Body Section -->
+                                <path id="main-body" d="M197.245 94.7377L187.599 110.635C186.056 110.769 185.157 110.848 183.614 110.982L171.43 97.9907C170.267 96.5456 168.052 96.0197 166.274 96.4323C164.497 96.8449 163.189 98.1661 162.552 99.768L156.07 117.397C154.55 117.787 153.413 118.117 152.173 118.741L137.088 107.006C135.712 106.095 133.517 105.797 132.019 106.443C130.286 107.368 129.737 108.853 129.38 110.689L125.975 129.053C124.734 129.677 123.663 130.747 122.165 131.393L105.437 123.816C103.805 122.928 101.909 123.093 100.456 124.25C98.9809 125.152 98.005 127.679 97.9052 129.492L98.4842 147.509C97.5231 148.366 96.9763 149.879 95.7581 150.758L78.2971 146.257C76.4298 145.646 74.834 146.274 73.4035 147.687C72.2077 148.822 71.4342 151.073 71.8486 152.841L75.5039 171.595C74.5652 172.708 73.6939 173.475 72.7777 174.844L54.6706 174.414C52.8482 174.315 51.7545 175.129 50.8607 176.753C49.967 178.378 49.3734 180.098 50.3021 181.821L57.8547 199.231C56.9385 200.6 55.7876 201.134 55.1286 202.48L38.3677 205.948C36.3107 206.127 34.2857 207.768 33.6492 209.37C33.035 211.228 33.1805 212.884 34.0867 214.351L44.453 229.509C44.2183 229.787 44.518 230.249 44.5405 230.505L15.1992 262.171C15.1992 262.171 10.8021 265.579 17.2455 274.038C23.0624 281.264 53.1087 310.372 68.9689 325.744C75.6021 333.414 79.5771 338.127 80.0689 337.826C80.7729 336.991 77.3291 322.466 64.23 306.081C54.1167 291.24 40.7352 268.289 43.6186 265.718C43.6186 265.718 46.8198 261.993 54.052 258.786C53.7724 258.553 53.7724 258.553 54.052 258.786C54.052 258.786 202.35 327.12 340.252 259.948C356.059 257.025 365.77 264.751 365.77 264.751C369.058 266.785 360.256 290.434 353.331 305.987C343.735 323.576 342.276 337.552 343.093 337.996C343.63 338.207 346.957 332.6 351.917 324.178C364.175 307.388 386.879 275.406 391.113 267.562C396.029 258.628 391.147 256.518 391.147 256.518L359.981 233.135C359.634 232.134 358.747 230.516 358.635 229.237L369.364 214.249C370.537 212.858 370.594 210.927 369.923 209.181C369.251 207.436 367.433 205.899 365.588 205.544L348.302 203.035C347.675 201.801 346.586 200.458 345.959 199.224L353.438 181.508C354.331 179.883 354.186 178.228 353 176.527C352.094 175.059 350.553 173.729 348.753 173.886L330.733 174.452C329.849 173.24 328.278 171.939 327.394 170.728L331.884 153.272C332.241 151.437 331.591 149.567 330.45 148.378C329.03 146.955 327.071 146.407 325.294 146.82L307.537 150.374C306.419 149.441 305.427 148.836 304.286 147.646L304.703 129.542C304.803 127.729 304.667 125.815 303.269 124.648C301.614 123.503 298.937 123.248 297.204 124.172L281.79 131.538C280.437 130.883 278.895 129.552 277.542 128.897L274.971 111.053C274.791 109.006 273.242 107.961 271.632 107.328C269.999 106.44 268.104 106.605 266.651 107.762L251.499 118.117C250.168 117.717 249.014 117.845 247.427 117.468L240.87 99.9708C240.199 98.2251 239.376 96.6013 237.531 96.2465C235.687 95.8918 234.068 96.2634 232.638 97.6767L219.828 111.842C218.52 111.698 217.321 111.314 215.756 111.193L206.298 94.9527C205.37 93.2294 203.873 92.4103 202.051 92.3114C200.229 92.2124 198.139 93.1134 197.245 94.7377Z" fill="url(#paint0_linear_110_5)"/>
+                            </g>
+
+                            <!-- Right Claw -->
+                            <g>
+                                
+                                <!-- Right Claw Shadow -->
+                                <path id="right-claw-shadow" d="M253.878 299.049C254.446 298.572 254.878 298.049 254.878 298.049L207.878 295.049C247.6 241.414 277.492 283.46 280.878 288.049V299.049H253.878Z" fill="black"/>
+                                
+                                <!-- Right Claw Main Section -->
+                                <path id="right-claw-main" d="M327.878 248.049C327.878 248.049 322.923 268.959 289.878 291.049L280.878 293.049C280.878 293.049 250.299 238.85 207.878 300.049C207.878 300.049 221.466 292.724 256.878 302.049C256.878 302.049 240.649 326.863 207.878 326.049C207.878 326.049 238.995 364.277 286.878 310.049C286.878 310.049 337.781 289.784 341.878 248.049L327.878 248.049Z" fill="url(#paint1_linear_110_5)"/>
+                                
+                            </g>
+
+                            <!-- Right Eye -->
+                            <g>
+                                
+                                <!-- Right Eye Sclera -->
+                                <path d="M229.878 220.049C229.878 220.049 243.973 203.826 258.878 220.049C258.878 220.049 270.589 241.234 258.878 252.049C258.878 252.049 240.524 267.191 229.878 252.049C229.878 252.049 217.102 240.598 229.878 220.049Z" fill="black"/>
+                                
+                                <!-- Right Eye Pupil -->
+                                <path d="M245.878 227.049C245.878 233.4 242.295 238.049 237.878 238.049C233.46 238.049 229.878 233.4 229.878 227.049C229.878 220.698 233.46 215.049 237.878 215.049C242.295 215.049 245.878 220.698 245.878 227.049Z" fill="white"/>
+                            </g>
+
+                            <g>
+                                
+                                <!-- Left Eye Sclera -->
+                                <path d="M163.878 216.049C163.878 216.049 188.73 205.607 195.878 230.049C195.878 230.049 203.869 259.441 174.878 261.049C174.878 261.049 138.738 252.912 163.878 216.049Z" fill="black"/>
+                                
+                                <!-- Left Eye Pupil -->
+                                <path d="M175.878 228.049C175.878 234.398 171.572 239.049 166.878 239.049C162.185 239.049 158.878 234.398 158.878 228.049C158.878 221.697 162.185 216.049 166.878 216.049C171.572 216.049 175.878 221.697 175.878 228.049Z" fill="white"/>
+                            </g>
+
+                            <!-- Left Claw -->
+                            <g>
+                                
+                                <!-- Left Claw Shadow -->
+                                <path id="left-claw-shadow" d="M152.878 300.049C152.309 299.567 151.878 299.049 151.878 299.049L200.878 295.049C161.12 242.984 129.268 284.411 125.878 289.049V300.049H152.878Z" fill="black"/>
+                                
+                                <!-- Left Claw Main Section -->
+                                <path id="left-claw-main" d="M125.878 312.049C172.514 371.523 194.878 324.049 194.878 324.049C168.696 321.12 149.878 304.049 149.878 304.049C181.296 300.062 199.878 299.049 199.878 299.049C157.823 243.886 123.878 294.049 123.878 294.049C115.369 290.957 106.341 279.951 99.8777 269.049L73.8777 261.049C103.905 311.818 125.878 312.049 125.878 312.049Z" fill="url(#paint2_linear_110_5)"/>
+                            </g>
+                        </g>
+                    </g>
+
+                    <!-- Definitions for Gradients -->
+                    <defs>
+                        <linearGradient id="paint0_linear_110_5" x1="211.131" y1="349.493" x2="188.823" y2="93.4521" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#F74C00"/>
+                            <stop offset="0.33" stop-color="#F74C00"/>
+                            <stop offset="1" stop-color="#F49600"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_110_5" x1="274.878" y1="339.133" x2="274.878" y2="248.049" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#CC3A00"/>
+                            <stop offset="0.15" stop-color="#CC3A00"/>
+                            <stop offset="0.74" stop-color="#F74C00"/>
+                            <stop offset="1" stop-color="#F74C00"/>
+                        </linearGradient>
+                        <linearGradient id="paint2_linear_110_5" x1="136.878" y1="342.002" x2="136.878" y2="261.049" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#CC3A00"/>
+                            <stop offset="0.15" stop-color="#CC3A00"/>
+                            <stop offset="0.74" stop-color="#F74C00"/>
+                            <stop offset="1" stop-color="#F74C00"/>
+                        </linearGradient>
+                    </defs>
+                </svg>  
+            
+            
+            
+            
+            </div>
+            </figure>
+            <p>With Ferris's body moving how I wanted it to, I animated his claws using transform:rotateZ( ). In order to control the point around which the vector pivots, I used the transform-origin parameter to designate the corner of the vector closest to the joints in Ferris's shoulders as the origin. Because the two claws are imperfect mirror images of one another, I reversed the degree values in rotateZ( ) so that both of Ferris's claws move up and down at the same time, instead of alternating.</p>
+            <figure>
+            <div class="code-container">
+                <h4>CSS</h4>
+                <code>
+                    <p>
+                        /* Right Claw Pivot*/
+                        <br>
+                        #right-claw {
+                        <br>
+                        animation: rightClaw 750ms linear alternate-reverse infinite;
+                        <br>
+                        transform-origin: right;
+                        <br>
+                        }
+                        <br>
+                    </p>
+
+                    <p>
+                        @keyframes rightClaw {
+                        <br>
+                        from {
+                        <br>
+                        transform: rotateZ(-3deg);
+                        <br>
+                        }
+                        <br>
+                        to {
+                        <br>
+                        transform: rotateZ(3deg);
+                        <br>
+                        }
+                        <br>
+                        }
+                        <br>
+                    </p>
+                    
+                    <p>
+                        /* Left Claw Pivot*/
+                        <br>
+                        #left-claw {
+                        <br>
+                        animation: leftClaw 750ms linear alternate-reverse infinite;
+                        <br>
+                        transform-origin: left;
+                        <br>
+                        }
+                    </p>
+                    <p>
+                        @keyframes leftClaw {
+                        <br>
+                        from {
+                        <br>    
+                        transform: rotateZ(3deg);
+                        <br>
+                        }
+                        <br>
+                        to {
+                        <br>
+                        transform: rotateZ(-3deg);
+                        <br>
+                        }
+                        <br>
+                        }
+                    </p>
+                </code>
+            </div>
+              <!-- Ferris With Animated Claws -->
+            <div class="svg-animation-container">
+                <!-- Main SVG Code -->
+                <svg width="100%" height="100%" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg"  id="ferris">
+                    <g>
+                        <g id="crab">
+                            <!-- Body and All Legs -->
+                            <g id="body-and-legs">
+                                <!-- Right Back Foot -->
+                                <path id="right-back-foot" d="M362.878 257.049L358.878 246.049C358.903 245.667 358.878 245.432 358.878 245.049C358.878 233.649 346.899 223.46 326.878 215.049V276.049C336.219 272.124 343.457 267.765 348.878 263.049C347.283 269.438 342.227 281.958 337.878 291.049C330.729 304.05 328.546 315.488 328.878 316.049C329.089 316.401 331.281 313.122 334.878 307.049C343.247 295.169 358.708 271.826 361.878 266.049C365.468 259.5 362.878 257.049 362.878 257.049Z" fill="#A52B00"/>
+                                
+                                <!-- Left Back Foot -->
+                                <path id="left-back-foot" d="M49.8777 246.049C49.8777 248.243 51.0396 249.929 51.8777 252.049L48.8777 257.049C48.8777 257.049 45.8447 260.679 49.8777 267.049C53.435 272.665 71.4732 294.536 80.8777 306.049C84.9173 311.951 87.6378 315.4 87.8777 315.049C88.2552 314.491 85.9002 303.691 77.8777 291.049C74.1343 284.258 69.5609 274.694 66.8777 268.049C74.3695 272.867 84.232 277.287 95.8777 281.049V210.049C67.8143 219.11 49.8777 232.129 49.8777 246.049Z" fill="#A52B00"/>
+                                
+                                <!-- Body Underside -->
+                                <path id="body-underside" d="M202.878 200.049C161.507 200.049 123.705 204.977 95.8777 213.049V282.049C123.705 290.121 161.507 295.049 202.878 295.049C250.227 295.049 292.404 288.275 320.878 278.049V217.049C292.404 206.822 250.227 200.049 202.878 200.049Z" fill="#A52B00"/>
+                                
+                                <!-- Main Body Section -->
+                                <path id="main-body" d="M197.245 94.7377L187.599 110.635C186.056 110.769 185.157 110.848 183.614 110.982L171.43 97.9907C170.267 96.5456 168.052 96.0197 166.274 96.4323C164.497 96.8449 163.189 98.1661 162.552 99.768L156.07 117.397C154.55 117.787 153.413 118.117 152.173 118.741L137.088 107.006C135.712 106.095 133.517 105.797 132.019 106.443C130.286 107.368 129.737 108.853 129.38 110.689L125.975 129.053C124.734 129.677 123.663 130.747 122.165 131.393L105.437 123.816C103.805 122.928 101.909 123.093 100.456 124.25C98.9809 125.152 98.005 127.679 97.9052 129.492L98.4842 147.509C97.5231 148.366 96.9763 149.879 95.7581 150.758L78.2971 146.257C76.4298 145.646 74.834 146.274 73.4035 147.687C72.2077 148.822 71.4342 151.073 71.8486 152.841L75.5039 171.595C74.5652 172.708 73.6939 173.475 72.7777 174.844L54.6706 174.414C52.8482 174.315 51.7545 175.129 50.8607 176.753C49.967 178.378 49.3734 180.098 50.3021 181.821L57.8547 199.231C56.9385 200.6 55.7876 201.134 55.1286 202.48L38.3677 205.948C36.3107 206.127 34.2857 207.768 33.6492 209.37C33.035 211.228 33.1805 212.884 34.0867 214.351L44.453 229.509C44.2183 229.787 44.518 230.249 44.5405 230.505L15.1992 262.171C15.1992 262.171 10.8021 265.579 17.2455 274.038C23.0624 281.264 53.1087 310.372 68.9689 325.744C75.6021 333.414 79.5771 338.127 80.0689 337.826C80.7729 336.991 77.3291 322.466 64.23 306.081C54.1167 291.24 40.7352 268.289 43.6186 265.718C43.6186 265.718 46.8198 261.993 54.052 258.786C53.7724 258.553 53.7724 258.553 54.052 258.786C54.052 258.786 202.35 327.12 340.252 259.948C356.059 257.025 365.77 264.751 365.77 264.751C369.058 266.785 360.256 290.434 353.331 305.987C343.735 323.576 342.276 337.552 343.093 337.996C343.63 338.207 346.957 332.6 351.917 324.178C364.175 307.388 386.879 275.406 391.113 267.562C396.029 258.628 391.147 256.518 391.147 256.518L359.981 233.135C359.634 232.134 358.747 230.516 358.635 229.237L369.364 214.249C370.537 212.858 370.594 210.927 369.923 209.181C369.251 207.436 367.433 205.899 365.588 205.544L348.302 203.035C347.675 201.801 346.586 200.458 345.959 199.224L353.438 181.508C354.331 179.883 354.186 178.228 353 176.527C352.094 175.059 350.553 173.729 348.753 173.886L330.733 174.452C329.849 173.24 328.278 171.939 327.394 170.728L331.884 153.272C332.241 151.437 331.591 149.567 330.45 148.378C329.03 146.955 327.071 146.407 325.294 146.82L307.537 150.374C306.419 149.441 305.427 148.836 304.286 147.646L304.703 129.542C304.803 127.729 304.667 125.815 303.269 124.648C301.614 123.503 298.937 123.248 297.204 124.172L281.79 131.538C280.437 130.883 278.895 129.552 277.542 128.897L274.971 111.053C274.791 109.006 273.242 107.961 271.632 107.328C269.999 106.44 268.104 106.605 266.651 107.762L251.499 118.117C250.168 117.717 249.014 117.845 247.427 117.468L240.87 99.9708C240.199 98.2251 239.376 96.6013 237.531 96.2465C235.687 95.8918 234.068 96.2634 232.638 97.6767L219.828 111.842C218.52 111.698 217.321 111.314 215.756 111.193L206.298 94.9527C205.37 93.2294 203.873 92.4103 202.051 92.3114C200.229 92.2124 198.139 93.1134 197.245 94.7377Z" fill="url(#paint0_linear_110_5)"/>
+                            </g>
+
+                            <!-- Right Claw -->
+                            <g id="right-claw">
+                                
+                                <!-- Right Claw Shadow -->
+                                <path id="right-claw-shadow" d="M253.878 299.049C254.446 298.572 254.878 298.049 254.878 298.049L207.878 295.049C247.6 241.414 277.492 283.46 280.878 288.049V299.049H253.878Z" fill="black"/>
+                                
+                                <!-- Right Claw Main Section -->
+                                <path id="right-claw-main" d="M327.878 248.049C327.878 248.049 322.923 268.959 289.878 291.049L280.878 293.049C280.878 293.049 250.299 238.85 207.878 300.049C207.878 300.049 221.466 292.724 256.878 302.049C256.878 302.049 240.649 326.863 207.878 326.049C207.878 326.049 238.995 364.277 286.878 310.049C286.878 310.049 337.781 289.784 341.878 248.049L327.878 248.049Z" fill="url(#paint1_linear_110_5)"/>
+                                
+                            </g>
+
+                            <!-- Right Eye -->
+                            <g >
+                                
+                                <!-- Right Eye Sclera -->
+                                <path d="M229.878 220.049C229.878 220.049 243.973 203.826 258.878 220.049C258.878 220.049 270.589 241.234 258.878 252.049C258.878 252.049 240.524 267.191 229.878 252.049C229.878 252.049 217.102 240.598 229.878 220.049Z" fill="black"/>
+                                
+                                <!-- Right Eye Pupil -->
+                                <path d="M245.878 227.049C245.878 233.4 242.295 238.049 237.878 238.049C233.46 238.049 229.878 233.4 229.878 227.049C229.878 220.698 233.46 215.049 237.878 215.049C242.295 215.049 245.878 220.698 245.878 227.049Z" fill="white"/>
+                            </g>
+
+                            <g>
+                                
+                                <!-- Left Eye Sclera -->
+                                <path d="M163.878 216.049C163.878 216.049 188.73 205.607 195.878 230.049C195.878 230.049 203.869 259.441 174.878 261.049C174.878 261.049 138.738 252.912 163.878 216.049Z" fill="black"/>
+                                
+                                <!-- Left Eye Pupil -->
+                                <path d="M175.878 228.049C175.878 234.398 171.572 239.049 166.878 239.049C162.185 239.049 158.878 234.398 158.878 228.049C158.878 221.697 162.185 216.049 166.878 216.049C171.572 216.049 175.878 221.697 175.878 228.049Z" fill="white"/>
+                            </g>
+
+                            <!-- Left Claw -->
+                            <g id="left-claw">
+                                
+                                <!-- Left Claw Shadow -->
+                                <path id="left-claw-shadow" d="M152.878 300.049C152.309 299.567 151.878 299.049 151.878 299.049L200.878 295.049C161.12 242.984 129.268 284.411 125.878 289.049V300.049H152.878Z" fill="black"/>
+                                
+                                <!-- Left Claw Main Section -->
+                                <path id="left-claw-main" d="M125.878 312.049C172.514 371.523 194.878 324.049 194.878 324.049C168.696 321.12 149.878 304.049 149.878 304.049C181.296 300.062 199.878 299.049 199.878 299.049C157.823 243.886 123.878 294.049 123.878 294.049C115.369 290.957 106.341 279.951 99.8777 269.049L73.8777 261.049C103.905 311.818 125.878 312.049 125.878 312.049Z" fill="url(#paint2_linear_110_5)"/>
+                            </g>
+                        </g>
+                    </g>
+
+                    <!-- Definitions for Gradients -->
+                    <defs>
+                        <linearGradient id="paint0_linear_110_5" x1="211.131" y1="349.493" x2="188.823" y2="93.4521" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#F74C00"/>
+                            <stop offset="0.33" stop-color="#F74C00"/>
+                            <stop offset="1" stop-color="#F49600"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_110_5" x1="274.878" y1="339.133" x2="274.878" y2="248.049" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#CC3A00"/>
+                            <stop offset="0.15" stop-color="#CC3A00"/>
+                            <stop offset="0.74" stop-color="#F74C00"/>
+                            <stop offset="1" stop-color="#F74C00"/>
+                        </linearGradient>
+                        <linearGradient id="paint2_linear_110_5" x1="136.878" y1="342.002" x2="136.878" y2="261.049" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#CC3A00"/>
+                            <stop offset="0.15" stop-color="#CC3A00"/>
+                            <stop offset="0.74" stop-color="#F74C00"/>
+                            <stop offset="1" stop-color="#F74C00"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            </figure>
+          
+            <p>With Ferris's body and claws animated, I started animating the eyes using the translateY animation again. First, selecting the left and right sclera together, I added a translateY animation in order to have them match the movement of the orange body section. Then, I selected the white pupils specifically and used a second translateY( ) animation with different values to create the appearance of Ferris's eyes looking up and down as he bounces. </p>
+
+            <p></p>
+
+            <figure>
+             <div class="code-container">
+                <h4>CSS</h4>
+                <code>
+                    <p>
+                    /* Eyes(Pupil and Sclera Together) */
+                    <br>
+                    #right-eye,
+                    <br>
+                    #left-eye {
+                    <br>
+                    animation: eyes 750ms ease alternate-reverse infinite;
+                    }
+                    <br>
+                    @keyframes eyes {
+                    from {
+                        transform: translateY(6px);
+                    }
+                    to {
+                        transform: translateY(-6px);
+                    }
+                    }
+                    </p>
+
+                    <p></p>
+                    /* Eyes(Pupils) */
+                    <br>
+                    #right-pupil,
+                    <br>
+                    #left-pupil {
+                    <br>
+                    animation: pupils 750ms ease alternate infinite;
+                    <br>
+                    }
+                    <br>
+                    @keyframes pupils {
+                    <br>
+                    from {
+                    <br>
+                    transform: translateY(2px);
+                    <br>
+                    }
+                    <br>
+                    to {
+                    <br>
+                    transform: translateY(7px);
+                    <br>
+                    }
+                    <br>
+                    }
+                </code>
+            </div>
+            <!-- Ferris Fully Animated-->
+            <div class="svg-animation-container">
+                <!-- Main SVG Code -->
+                <svg width="100%" height="100%" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg"  id="ferris">
+                    <g>
+                        <g id="crab">
+                            <!-- Body and All Legs -->
+                            <g id="body-and-legs">
+                                <!-- Right Back Foot -->
+                                <path id="right-back-foot" d="M362.878 257.049L358.878 246.049C358.903 245.667 358.878 245.432 358.878 245.049C358.878 233.649 346.899 223.46 326.878 215.049V276.049C336.219 272.124 343.457 267.765 348.878 263.049C347.283 269.438 342.227 281.958 337.878 291.049C330.729 304.05 328.546 315.488 328.878 316.049C329.089 316.401 331.281 313.122 334.878 307.049C343.247 295.169 358.708 271.826 361.878 266.049C365.468 259.5 362.878 257.049 362.878 257.049Z" fill="#A52B00"/>
+                                
+                                <!-- Left Back Foot -->
+                                <path id="left-back-foot" d="M49.8777 246.049C49.8777 248.243 51.0396 249.929 51.8777 252.049L48.8777 257.049C48.8777 257.049 45.8447 260.679 49.8777 267.049C53.435 272.665 71.4732 294.536 80.8777 306.049C84.9173 311.951 87.6378 315.4 87.8777 315.049C88.2552 314.491 85.9002 303.691 77.8777 291.049C74.1343 284.258 69.5609 274.694 66.8777 268.049C74.3695 272.867 84.232 277.287 95.8777 281.049V210.049C67.8143 219.11 49.8777 232.129 49.8777 246.049Z" fill="#A52B00"/>
+                                
+                                <!-- Body Underside -->
+                                <path id="body-underside" d="M202.878 200.049C161.507 200.049 123.705 204.977 95.8777 213.049V282.049C123.705 290.121 161.507 295.049 202.878 295.049C250.227 295.049 292.404 288.275 320.878 278.049V217.049C292.404 206.822 250.227 200.049 202.878 200.049Z" fill="#A52B00"/>
+                                
+                                <!-- Main Body Section -->
+                                <path id="main-body" d="M197.245 94.7377L187.599 110.635C186.056 110.769 185.157 110.848 183.614 110.982L171.43 97.9907C170.267 96.5456 168.052 96.0197 166.274 96.4323C164.497 96.8449 163.189 98.1661 162.552 99.768L156.07 117.397C154.55 117.787 153.413 118.117 152.173 118.741L137.088 107.006C135.712 106.095 133.517 105.797 132.019 106.443C130.286 107.368 129.737 108.853 129.38 110.689L125.975 129.053C124.734 129.677 123.663 130.747 122.165 131.393L105.437 123.816C103.805 122.928 101.909 123.093 100.456 124.25C98.9809 125.152 98.005 127.679 97.9052 129.492L98.4842 147.509C97.5231 148.366 96.9763 149.879 95.7581 150.758L78.2971 146.257C76.4298 145.646 74.834 146.274 73.4035 147.687C72.2077 148.822 71.4342 151.073 71.8486 152.841L75.5039 171.595C74.5652 172.708 73.6939 173.475 72.7777 174.844L54.6706 174.414C52.8482 174.315 51.7545 175.129 50.8607 176.753C49.967 178.378 49.3734 180.098 50.3021 181.821L57.8547 199.231C56.9385 200.6 55.7876 201.134 55.1286 202.48L38.3677 205.948C36.3107 206.127 34.2857 207.768 33.6492 209.37C33.035 211.228 33.1805 212.884 34.0867 214.351L44.453 229.509C44.2183 229.787 44.518 230.249 44.5405 230.505L15.1992 262.171C15.1992 262.171 10.8021 265.579 17.2455 274.038C23.0624 281.264 53.1087 310.372 68.9689 325.744C75.6021 333.414 79.5771 338.127 80.0689 337.826C80.7729 336.991 77.3291 322.466 64.23 306.081C54.1167 291.24 40.7352 268.289 43.6186 265.718C43.6186 265.718 46.8198 261.993 54.052 258.786C53.7724 258.553 53.7724 258.553 54.052 258.786C54.052 258.786 202.35 327.12 340.252 259.948C356.059 257.025 365.77 264.751 365.77 264.751C369.058 266.785 360.256 290.434 353.331 305.987C343.735 323.576 342.276 337.552 343.093 337.996C343.63 338.207 346.957 332.6 351.917 324.178C364.175 307.388 386.879 275.406 391.113 267.562C396.029 258.628 391.147 256.518 391.147 256.518L359.981 233.135C359.634 232.134 358.747 230.516 358.635 229.237L369.364 214.249C370.537 212.858 370.594 210.927 369.923 209.181C369.251 207.436 367.433 205.899 365.588 205.544L348.302 203.035C347.675 201.801 346.586 200.458 345.959 199.224L353.438 181.508C354.331 179.883 354.186 178.228 353 176.527C352.094 175.059 350.553 173.729 348.753 173.886L330.733 174.452C329.849 173.24 328.278 171.939 327.394 170.728L331.884 153.272C332.241 151.437 331.591 149.567 330.45 148.378C329.03 146.955 327.071 146.407 325.294 146.82L307.537 150.374C306.419 149.441 305.427 148.836 304.286 147.646L304.703 129.542C304.803 127.729 304.667 125.815 303.269 124.648C301.614 123.503 298.937 123.248 297.204 124.172L281.79 131.538C280.437 130.883 278.895 129.552 277.542 128.897L274.971 111.053C274.791 109.006 273.242 107.961 271.632 107.328C269.999 106.44 268.104 106.605 266.651 107.762L251.499 118.117C250.168 117.717 249.014 117.845 247.427 117.468L240.87 99.9708C240.199 98.2251 239.376 96.6013 237.531 96.2465C235.687 95.8918 234.068 96.2634 232.638 97.6767L219.828 111.842C218.52 111.698 217.321 111.314 215.756 111.193L206.298 94.9527C205.37 93.2294 203.873 92.4103 202.051 92.3114C200.229 92.2124 198.139 93.1134 197.245 94.7377Z" fill="url(#paint0_linear_110_5)"/>
+                            </g>
+
+                            <!-- Right Claw -->
+                            <g id="right-claw">
+                                
+                                <!-- Right Claw Shadow -->
+                                <path id="right-claw-shadow" d="M253.878 299.049C254.446 298.572 254.878 298.049 254.878 298.049L207.878 295.049C247.6 241.414 277.492 283.46 280.878 288.049V299.049H253.878Z" fill="black"/>
+                                
+                                <!-- Right Claw Main Section -->
+                                <path id="right-claw-main" d="M327.878 248.049C327.878 248.049 322.923 268.959 289.878 291.049L280.878 293.049C280.878 293.049 250.299 238.85 207.878 300.049C207.878 300.049 221.466 292.724 256.878 302.049C256.878 302.049 240.649 326.863 207.878 326.049C207.878 326.049 238.995 364.277 286.878 310.049C286.878 310.049 337.781 289.784 341.878 248.049L327.878 248.049Z" fill="url(#paint1_linear_110_5)"/>
+                                
+                            </g>
+
+                            <!-- Right Eye -->
+                            <g id="right-eye">
+                                
+                                <!-- Right Eye Sclera -->
+                                <path id="right-sclera" d="M229.878 220.049C229.878 220.049 243.973 203.826 258.878 220.049C258.878 220.049 270.589 241.234 258.878 252.049C258.878 252.049 240.524 267.191 229.878 252.049C229.878 252.049 217.102 240.598 229.878 220.049Z" fill="black"/>
+                                
+                                <!-- Right Eye Pupil -->
+                                <path id="right-pupil" d="M245.878 227.049C245.878 233.4 242.295 238.049 237.878 238.049C233.46 238.049 229.878 233.4 229.878 227.049C229.878 220.698 233.46 215.049 237.878 215.049C242.295 215.049 245.878 220.698 245.878 227.049Z" fill="white"/>
+                            </g>
+
+                            <g id="left-eye">
+                                
+                                <!-- Left Eye Sclera -->
+                                <path id="left-sclera" d="M163.878 216.049C163.878 216.049 188.73 205.607 195.878 230.049C195.878 230.049 203.869 259.441 174.878 261.049C174.878 261.049 138.738 252.912 163.878 216.049Z" fill="black"/>
+                                
+                                <!-- Left Eye Pupil -->
+                                <path id="left-pupil" d="M175.878 228.049C175.878 234.398 171.572 239.049 166.878 239.049C162.185 239.049 158.878 234.398 158.878 228.049C158.878 221.697 162.185 216.049 166.878 216.049C171.572 216.049 175.878 221.697 175.878 228.049Z" fill="white"/>
+                            </g>
+
+                            <!-- Left Claw -->
+                            <g id="left-claw">
+                                
+                                <!-- Left Claw Shadow -->
+                                <path id="left-claw-shadow" d="M152.878 300.049C152.309 299.567 151.878 299.049 151.878 299.049L200.878 295.049C161.12 242.984 129.268 284.411 125.878 289.049V300.049H152.878Z" fill="black"/>
+                                
+                                <!-- Left Claw Main Section -->
+                                <path id="left-claw-main" d="M125.878 312.049C172.514 371.523 194.878 324.049 194.878 324.049C168.696 321.12 149.878 304.049 149.878 304.049C181.296 300.062 199.878 299.049 199.878 299.049C157.823 243.886 123.878 294.049 123.878 294.049C115.369 290.957 106.341 279.951 99.8777 269.049L73.8777 261.049C103.905 311.818 125.878 312.049 125.878 312.049Z" fill="url(#paint2_linear_110_5)"/>
+                            </g>
+                        </g>
+                    </g>
+
+                    <!-- Definitions for Gradients -->
+                    <defs>
+                        <linearGradient id="paint0_linear_110_5" x1="211.131" y1="349.493" x2="188.823" y2="93.4521" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#F74C00"/>
+                            <stop offset="0.33" stop-color="#F74C00"/>
+                            <stop offset="1" stop-color="#F49600"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_110_5" x1="274.878" y1="339.133" x2="274.878" y2="248.049" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#CC3A00"/>
+                            <stop offset="0.15" stop-color="#CC3A00"/>
+                            <stop offset="0.74" stop-color="#F74C00"/>
+                            <stop offset="1" stop-color="#F74C00"/>
+                        </linearGradient>
+                        <linearGradient id="paint2_linear_110_5" x1="136.878" y1="342.002" x2="136.878" y2="261.049" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#CC3A00"/>
+                            <stop offset="0.15" stop-color="#CC3A00"/>
+                            <stop offset="0.74" stop-color="#F74C00"/>
+                            <stop offset="1" stop-color="#F74C00"/>
+                        </linearGradient>
+                    </defs>
+                </svg>  
+            
+            
+            
+            
+            </div>
+            </figure>
+
+            <h3>Conclusion</h3>
+            
+            <p>Animation is an important component of modern web applications, and SVG is an accessible and lightweight file format that can easily be used to create animated graphical elements using technology and skills that even beginner web developers are likely to be familiar with. 
+
+            </p>
+
         </div>
     </article>
 

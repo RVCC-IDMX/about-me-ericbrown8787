@@ -1,0 +1,101 @@
+/* Container Div for SVG Image. */
+.svg-animation-container {
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  background-color: whitesmoke;
+  width: 100%; /*Sets width of contained inline SVG*/
+  max-width: 300px;
+  max-height: 300px;
+}
+
+/* ---Animations Start Here--- */
+
+/* Main Body */
+#main-body {
+  animation: mainBody 750ms ease alternate-reverse infinite;
+}
+
+@keyframes mainBody {
+  from {
+    transform: translateY(3px);
+  }
+  to {
+    transform: translateY(-3px);
+  }
+}
+
+/* Underside and Back Feet */
+#right-back-foot,
+#left-back-foot,
+#body-underside {
+  animation: underside 750ms ease alternate-reverse infinite;
+}
+
+@keyframes underside {
+  from {
+    transform: translateY(7px);
+  }
+  to {
+    transform: translateY(-7px);
+  }
+}
+
+/* Right Claw Pivot*/
+#right-claw {
+  animation: rightClaw 750ms linear alternate-reverse infinite;
+  transform-origin: right;
+}
+
+@keyframes rightClaw {
+  from {
+    transform: rotateZ(-3deg);
+  }
+  to {
+    transform: rotateZ(3deg);
+  }
+}
+
+/* Left Claw Pivot*/
+#left-claw {
+  animation: leftClaw 750ms linear alternate-reverse infinite;
+  transform-origin: left;
+}
+
+@keyframes leftClaw {
+  from {
+    transform: rotateZ(3deg);
+  }
+  to {
+    transform: rotateZ(-3deg);
+  }
+}
+
+/* Eyes(Pupil and Sclera Together) */
+#right-eye,
+#left-eye {
+  animation: eyes 750ms ease alternate-reverse infinite;
+}
+
+@keyframes eyes {
+  from {
+    transform: translateY(6px);
+  }
+  to {
+    transform: translateY(-6px);
+  }
+}
+
+/* Eyes(Pupils) */
+#right-pupil,
+#left-pupil {
+  animation: pupils 750ms ease alternate infinite;
+}
+
+@keyframes pupils {
+  from {
+    transform: translateY(2px);
+  }
+  to {
+    transform: translateY(7px);
+  }
+}
