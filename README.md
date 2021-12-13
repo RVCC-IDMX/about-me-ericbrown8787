@@ -13,6 +13,8 @@
 
 - [Color Scheme](#colorscheme)
 
+- [Changes to Nav Bar in Final Draft](#navbar-changes)
+
 - [Citations](#citations)
 
 - [License Information](#license)
@@ -112,13 +114,39 @@ I made a lot of changes to the color scheme as I worked on the project. My initi
 
 ---
 
+## **Changes to Navbar in Final Draft: Hamburger Menu and Fixed Navbar in Mobile State**
+
+<a id="navbar-changes"></a>
+
+For the final draft of the project, I added an animated hamburger-style dropdown menu to the nav bar in order to conserve space at mobile screen sizes. The animation was based off of [this](https://www.youtube.com/watch?v=DZg6UfS5zYg) tutorial by Traversy Media, but I made adjustments in order to reduce the number of non-semantic elements used and make the menu fit my site's aesthetic and structure.
+
+In particular, changing the positioning to fit my desired navbar structure was difficult, as the hamburger menu was used as a minimalist navigation menu for all media states in the tutorial and was always in the same absolute position on the page. In order to work the hamburger icon into my navigation menu, I used a &lt;label> element with display:flex; in order to center it vertically and push it to the far right side of the navbar. After doing this, the hamburger icon fit neatly into the navbar's grid layout. Finally, I added a simple animation to the nav menu in order to make its appearance seem less sudden when it is opened with the hamburger icon.
+
+As I built the website, I noticed that the page was very long on mobile, and a user who wants to navigate to another section would either need to hunt for it by scrolling or scroll back to the top to reach the navbar. To make navigation easier on mobile devices, I set the navbar's position to fixed while in mobile view in order to give mobile users quick access to navigation functions and reduce the need for repetitive scrolling.
+
+---
+
 ## **Citations**
 
 <a id="citations"></a>
 
+### **Navbar Hamburger Menu Tutorial:**
+
+[Traversy Media: Pure CSS Hamburger Menu & Overlay](https://www.youtube.com/watch?v=DZg6UfS5zYg)
+
+> Brad Traversy
+
+> Traversy Media
+
+> Youtube
+
+> Published on Apr 4, 2019
+
+<br><br>
+
 ### **Hobbies Section Background Image:**
 
-> [Motherboard, Reverse Detail](https://unsplash.com/photos/aQYgUYwnCsM)
+[Motherboard, Reverse Detail](https://unsplash.com/photos/aQYgUYwnCsM)
 
 > Michael Dziedzic
 
@@ -130,19 +158,27 @@ I made a lot of changes to the color scheme as I worked on the project. My initi
 
 > Free to use under the Unsplash License
 
-<br><br>
+<br>
 
-### **Sources used in Lit/Article Section: "Animated Svg Images Using CSS" Blog**
+### **Sources used in Lit/Article Section: "Animated Svg Images Using CSS" Blog:**
 
 [Dev Ed: Learn To Build An SVG Animation With CSS](https://www.youtube.com/watch?v=gWai7fYp9PY&t=3s)
 
 > Dev Ed's Channel on Youtube
+
+> Youtube
+
+> Published on Nov 23, 2019
 
 <br>
 
 [Animate SVG with CSS](https://blog.logrocket.com/animating-svg-with-css-83e8e27d739c/)
 
 > Hope Armstrong
+
+> Logrocket
+
+> Published January 8, 2019
 
 <br>
 

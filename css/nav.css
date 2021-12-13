@@ -11,40 +11,62 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  max-width: 100%;
 }
-
-/* add some padding back to rest of page */
-/* main{
-    padding: 10px;
-} */
 
 /* navbar */
 .navbar {
-  background-color: #333;
-  display: flex;
-  flex-direction: column;
-  font-size: 1.5rem;
-  padding: 1rem;
+  box-shadow: 5px 5px 10px black;
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  background-color: #f9f5fc;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem 0.5rem;
 }
 
-/* logo */
+.navbar label {
+  display: flex;
+  justify-content: right;
+}
+
 .logo {
   display: flex;
+  justify-content: left;
   align-items: center;
+  gap: 1rem;
+  grid-column: span 2;
 }
 
 .logo img {
-  height: 7vw;
-  width: 7vw;
+  border: 2px dashed #db4001;
+  display: flex;
+  align-items: center;
+  height: 2rem;
+  width: 2rem;
+  padding: 0.2rem;
 }
 
 .logo h1 {
-  font-size: 1.5em;
-  color: whitesmoke;
+  margin: 0;
+  padding: 0;
+  font-size: 2rem;
+  color: #04805e;
 }
 
 /* navigation list */
+.navbar-links {
+  grid-column: span 3;
+  display: none; /*Toggled by Hamburger Menu*/
+}
+
+.navbar-links ul {
+  text-align: center;
+  padding: 0;
+}
+
 .navbar-links li {
   list-style: none;
   display: block; /*just here to easily distinguish for media query later*/
@@ -56,10 +78,10 @@ body {
  and then on hover
 */
 .navbar-links a {
-  color: whitesmoke;
-  background-color: #333;
+  color: #04805e;
+  background-color: #f9f5fc;
   font-size: 1.2rem;
-  padding: 1rem 1.25rem;
+  padding: 0.5rem 1rem;
   letter-spacing: 2px;
   text-decoration: none;
   display: inline-block; /*just here to easily distinguish for media query later*/
@@ -68,24 +90,143 @@ body {
 .navbar-links a:hover,
 .navbar-links a:focus {
   filter: invert(1);
+  color: #db4001;
   border-radius: 10px;
   outline: none;
 }
 
+/* --------------------Hamburger Menu Icon-------------------- */
+.toggler {
+  display: none;
+}
+
+/* Toggles Nav Menu Visibility */
+.toggler:checked ~ .navbar-links {
+  display: block;
+}
+
+/* Hamburger Lines */
+.hamburger > div {
+  position: relative;
+  width: 2rem;
+  height: 3px;
+  margin: 20px; /*Added a margin to make the button easier to click and touch*/
+  background-color: #04805e;
+  transition: all 400ms ease;
+}
+
+.hamburger > div:before,
+.hamburger > div:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -10px;
+  width: 100%;
+  height: 3px;
+  background: inherit;
+}
+
+/* Move Line Down */
+.hamburger > div:after {
+  top: 10px;
+}
+
+/*--------------------Hamburger Menu Animations-------------------- */
+/* Toggler Animate */
+.toggler:checked ~ label .hamburger div {
+  transform: rotate(135deg);
+}
+
+/* Turn Lines into X */
+.toggler:checked ~ label .hamburger div:before,
+.toggler:checked ~ label .hamburger div:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+/* Rotate on Hover While Checked */
+.toggler:checked:hover ~ label .hamburger div {
+  transform: rotate(225deg);
+}
+
+/*--------------------Navbar UL Animations-------------------- */
+@media screen and (max-width: 55rem) {
+  .navbar-links {
+    animation: menu-grow 800ms ease-in both;
+  }
+
+  @keyframes menu-grow {
+    0% {
+      opacity: 0;
+      transform: rotateZ(180deg);
+    }
+    30% {
+      transform: rotateZ(0deg);
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+/*--------------------Media Queries--------------------*/
 /* 
 media query for non-mobile nav bar
 min-width set to width of nav elements 
 such that no text wraps 
 */
-
 @media screen and (min-width: 55rem) {
+  .logo {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .logo img {
+    margin-left: 1rem;
+    width: 6rem;
+    height: auto;
+    box-shadow: 5px 5px 10px black;
+  }
+
+  .logo h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 2px black;
+  }
+
+  #hamburger-menu {
+    display: none;
+  }
+
+  .navbar-links {
+    display: flex;
+    grid-column: span 1;
+    justify-content: right;
+    align-items: center;
+  }
+
   .navbar {
-    flex-direction: row;
+    position: static;
+    border-top: 2px dashed #db4001;
+    border-bottom: 2px dashed #db4001;
     justify-content: space-between;
+    padding: 1rem 0;
   }
 
   .navbar ul {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .navbar-links a {
+    font-size: 1.3rem;
+  }
+
+  /* Removing Extra padding in Hero to make room for 
+  fixed/scrolling navbar*/
+  #hero {
+    padding-top: 1rem;
   }
 }
